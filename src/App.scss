@@ -1,0 +1,109 @@
+@import "./variables.scss";
+
+* {
+  @include margin-padding(0, 0);
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+body {
+  @include centerItens(center);
+  min-width: 320;
+  background: $background;
+}
+
+.header {
+  @include centerItens(center);
+  background-color: $background-color;
+  @include radius-shadow;
+  font-family: $fontFamily;
+  font-size: 40px;
+  margin-top: 8px;
+  max-width: 180vh;
+  padding: 50px;
+  &:hover {
+    box-shadow: inset -6px -6px 10px $shadow-color,
+      inset 6px 6px 20px $inset-color-half;
+  }
+}
+.container {
+  @include centerItens(space-around);
+  flex-wrap: wrap;
+  position: relative;
+  width: 1100px;
+  & .card .rating:hover {
+    display: block;
+    transform: scale(0.98);
+  }
+  & .card:hover .imgBx,
+  & .card:hover .contentBx {
+    transform: scale(0.98);
+  }
+}
+
+.card {
+  background: $background;
+  @include radius-shadow;
+  margin: 20px;
+  padding: 40px 30px;
+  width: 500px;
+  &:hover {
+    box-shadow: inset -6px -6px 10px $shadow-color,
+      inset 6px 6px 20px $inset-color-half;
+  }
+  & .imgBx {
+    position: relative;
+    text-align: center;
+    & img {
+      border-radius: 15px;
+      max-width: 400px;
+      @include radius-shadow;
+    }
+  }
+  & .contentBx {
+    margin-top: 20px;
+    position: relative;
+    text-align: center;
+    & h2 {
+      color: $color-text;
+      font-weight: 700;
+      font-size: 1.4em;
+      letter-spacing: 2px;
+    }
+    & p {
+      color: $color-text;
+    }
+  }
+}
+
+.contentBx {
+  @include centerItens(center);
+  flex-direction: column;
+  & .rating:hover {
+    box-shadow: inset -4px -4px 10px $shadow-color,
+      inset 4px 4px 10px $inset-color-int;
+  }
+}
+
+.rating {
+  @include radius-shadow;
+  color: $color-text;
+  display: flex;
+  margin-top: 15px;
+  max-width: 125px;
+  padding: 25px 25px;
+  #{&}:hover {
+    box-shadow: inset -4px -4px 15px $shadow-color,
+      inset 4px 4px 15px $inset-color-half;
+  }
+}
+@media (max-width: 1200px) {
+  .page .card {
+    width: 600px;
+  }
+  .header {
+    width: 500px;
+    margin-left: 300px;
+  }
+}
